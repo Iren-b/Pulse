@@ -19,22 +19,6 @@ $(document).ready(function() {
             .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
     });
 
-    // $('.catalog-item__link').each(function(i) {
-    //     $(this).on('click', function(e) {
-    //         e.preventDefault();
-    //         $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
-    //         $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
-    //     })
-    // });
-
-    // $('.catalog-item__back').each(function(i) {
-    //     $(this).on('click', function(e) {
-    //         e.preventDefault();
-    //         $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
-    //         $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
-    //     })
-    // });
-
     function toggleSlide(item) {
         $(item).each(function(i) {
             $(this).on('click', function(e) {
@@ -61,6 +45,16 @@ $(document).ready(function() {
             $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
             $('.overlay, #order').fadeIn('slow');
         });
+    });
+    
+    
+    $('[data-modal=consultation_thanks]').on('click', function() {
+    $('.overlay, #thanks').fadeIn('slow');
+    });
+    // чтобы при клике на форму с сайта, а не с модального окна сразу показывался thanks
+    $('.modal .button_submit').on('click', function() {
+    $('.overlay, #thanks').fadeIn('slow');
+    $('#order').fadeOut('slow');
     });
 
     // Validation
@@ -134,6 +128,7 @@ $(document).ready(function() {
 });
 
 // слайдер на чистом JS
+
 // const slider = tns({
 //     container: '.carousel__inner',
 //     items: 1,
@@ -147,14 +142,4 @@ $(document).ready(function() {
 // });
 // document.querySelector('.next').addEventListener('click', function() {
 //     slider.goTo('next');
-// });
-
-
-// $('[data-modal=consultation_thanks]').on('click', function() {
-//     $('.overlay, #thanks').fadeIn('slow');
-// });
-// чтобы при клике на форму с сайта, а не с модального окна сразу показывался thanks
-// $('.modal .button_submit').on('click', function() {
-//     $('.overlay, #thanks').fadeIn('slow');
-//     $('#order').fadeOut('slow');
 // });
