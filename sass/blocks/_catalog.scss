@@ -1,0 +1,177 @@
+.catalog {
+    padding-bottom: 100px;
+    &__tabs {
+        margin-top: 70px;
+        margin-bottom: 0;
+        padding-left: 0;
+        // т.к. у списков есть свои встроенные стили
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__tab {
+        width: 220px;
+        height: 50px;
+        border: 2px solid #D0D0D0;
+        color: #6b6b6b;
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 48px;
+        transform: skewX(-25deg);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: 0.3s all;
+        &:hover {
+            box-shadow: 3px 3px 20px $main-color;
+            border: none;
+        }
+        div {
+            transform: skewX(25deg);
+        }
+        &_active {
+            color: #fff;
+            background-color: $main-color;
+            border: none;
+        }
+    }
+    &__content {
+        margin-top: 60px;
+        display: none;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &_active {
+            display: flex;
+        }
+    }
+    &-item {
+        width: 300px;
+        min-height: 440px;
+        // т.к. размер descr может меняться
+        border: 2px solid #e8e8e8;
+        padding: 20px 20px 26px 20px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        &__img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: 200px;
+            // структура с учетом возможного изменения размера картинки
+        }
+        &__subtitle {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            color: #0D0D0D;
+        }
+        &__descr {
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 300;
+            text-align: center;
+            color: #0D0D0D;
+        }
+        &__link {
+            color: $main-color;
+            display: block;
+            margin-top: 17px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration-line: underline;
+            text-transform: uppercase;
+            &:hover {
+                color: $main-color;
+            }
+        }
+        &__back {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(calc(-50% - 19px));
+            // т.к. у __list p-l 19px
+            color: $main-color;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration-line: underline;
+            text-transform: uppercase;
+            &:hover {
+                color: $main-color;
+            }
+        }
+        hr {
+            background-color: #8e8e8e;
+            margin-top: 19px;
+            margin-bottom: 21px;
+            border-bottom: none;
+            // уменьшение до 1px т.к. полоска создается стилем border
+        }
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__old-price {
+            color: #555555;
+            font-size: 14px;
+            font-weight: 300;
+            text-decoration-line: line-through;
+        }
+        &__price {
+            color: #050505;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        &__wrapper {
+            display: flex;
+            width: calc(200% + 40px);
+        }
+        &__content {
+            width: 50%;
+            margin-right: 0px;
+            transform: translateX(-100%);
+            transition: 0.3s all;
+            &_active {
+                transform: translateX(0%);
+                margin-right: 20px;
+            }
+        }
+        &__list {
+            position: relative;
+            width: 50%;
+            margin-left: 20px;
+            padding-right: 20px;
+            padding-left: 19px;
+            margin-bottom: 0;
+            // 124 и 125 сброс встроенных в список стилей
+            transform: translateX(0%);
+            transition: 0.3s all;
+            list-style-type: none;
+            &_active {
+                transform: translateX(-100%);
+                margin-right: 0px;
+            }
+            li {
+                position: relative;
+                color: #555555;
+                font-size: 14px;
+                font-weight: 300;
+                margin-bottom: 20px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-color: $main-color;
+                    width: 5px;
+                    height: 5px;
+                    left: -14px;
+                    top: 7px;
+                }
+            }
+        }
+    }
+}
